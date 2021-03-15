@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="wclassth=device-wclassth, initial-scale=1.0">
+    <title>Dados</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        .main {
+            height: 100vh;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+
+        .dado {
+            border: solid black 5px;
+            width: 20rem;
+            height: 20rem;
+
+            border-radius: 20px;
+
+            display: grid;
+
+            cursor: pointer;
+        }
+
+        .spc {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+        }
+
+        .sp {
+            display: flex;
+            width: 100%;
+
+            justify-content: center;
+            align-items: center;
+
+            font-size: 5rem;
+        }
+
+        .circle {
+            padding: 35px;
+            border-radius: 100%;
+            background-color: black;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main">
+
+        <div class="dado" onclick="diceAnimation()">
+            <div class="space-1 spc">
+                <span class="sp 1">
+                    <span class="c"></span>
+
+                </span>
+                <span class="sp 2">
+
+                </span>
+                <span class="sp 3">
+                    <span class="c"></span>
+                </span>
+            </div>
+
+            <div class="space-2 spc">
+                <span class="sp 4">
+                    <span class="c"></span>
+
+                </span>
+                <span class="sp 5">
+                    <span class="c circle"></span>
+                </span>
+                <span class="sp 6">
+                    <span class="c"></span>
+                </span>
+            </div>
+
+            <div class="space-3 spc">
+                <span class="sp 7">
+                    <span class="c"></span>
+                </span>
+                <span class="sp 8">
+
+                </span>
+                <span class="sp 9"> <span class=" c"></span>
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <script>
+
+        const addClassC = (e) => {
+            e.forEach(a => {
+                a.className = 'c'
+            })
+        }
+
+        function diceAnimation(max = 6, min = 1) {
+
+
+            let element = document.querySelectorAll('.c');
+            let randomNumber = parseInt(Math.random() * (max - min + 1) + min);
+
+            console.log(randomNumber);
+
+            setTimeout(() => {
+                addClassC(element)
+                element[0].className = 'circle c'
+                element[6].className = 'circle c'
+            }, 800)
+
+
+
+            setTimeout(() => {
+
+                addClassC(element)
+                element[0].className = 'circle c'
+                element[1].className = 'circle c'
+                element[2].className = 'circle c'
+                element[5].className = 'circle c'
+                element[6].className = 'circle c'
+                element[4].className = 'circle c'
+            }, 900)
+
+
+
+            setTimeout(() => {
+                addClassC(element)
+
+                element[0].className = 'circle c'
+                element[1].className = 'circle c'
+                element[6].className = 'circle c'
+                element[5].className = 'circle c'
+            }, 1000)
+
+            setTimeout(() => {
+                addClassC(element)
+
+                element[3].className = 'circle c'
+            }, 1500)
+
+
+
+            setTimeout(() => {
+                addClassC(element)
+
+                element[0].className = 'circle c'
+                element[3].className = 'circle c'
+                element[6].className = 'circle c'
+            }, 1700)
+
+
+            setTimeout(() => {
+                addClassC(element)
+
+                element[0].className = 'circle c'
+                element[1].className = 'circle c'
+                element[6].className = 'circle c'
+                element[5].className = 'circle c'
+                element[3].className = 'circle c'
+
+                addClassC(element)
+
+
+                if (randomNumber == 1) {
+                    element[3].className = 'circle c'
+                } if (randomNumber == 2) {
+                    element[0].className = 'circle c'
+                    element[6].className = 'circle c'
+                } if (randomNumber == 3) {
+                    element[0].className = 'circle c'
+                    element[3].className = 'circle c'
+                    element[6].className = 'circle c'
+                } if (randomNumber == 4) {
+                    element[0].className = 'circle c'
+                    element[1].className = 'circle c'
+                    element[6].className = 'circle c'
+                    element[5].className = 'circle c'
+                } if (randomNumber == 5) {
+                    element[0].className = 'circle c'
+                    element[1].className = 'circle c'
+                    element[6].className = 'circle c'
+                    element[5].className = 'circle c'
+                    element[3].className = 'circle c'
+                } if (randomNumber == 6) {
+                    element[0].className = 'circle c'
+                    element[1].className = 'circle c'
+                    element[2].className = 'circle c'
+                    element[5].className = 'circle c'
+                    element[6].className = 'circle c'
+                    element[4].className = 'circle c'
+                }
+            }, 1900)
+
+        }
+
+    </script>
+</body>
+
+</html>
